@@ -1,7 +1,12 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.itesla.edu.mx', // Pon tu dominio aquí
+  // Pon tu dominio aquí
+  site: 'https://www.itesla.edu.mx',
+
+  integrations: [sitemap()]
 });
