@@ -1,0 +1,72 @@
+/* src/styles/global.css */
+
+:root {
+  /* Paleta de Colores Tesla (Actualizada) */
+  --color-morado: #831694;
+  --color-morado-2: #a023bc;
+  --color-morado-luz: #c529e8; 
+  --color-morado-luz-hover: #c529e8a0;
+  --color-blanco: #ffffff;
+  --color-negro: #1a1a1a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-blanco);
+  color: var(--color-negro);
+  scroll-behavior: smooth;
+}
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-blanco);
+  background: linear-gradient(135deg, var(--color-morado), var(--color-morado-2));
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--color-morado-luz);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px var(--color-morado-luz-hover);
+  color: var(--color-blanco);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: currentColor; 
+  border: 2px solid currentColor;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}

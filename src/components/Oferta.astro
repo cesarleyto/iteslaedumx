@@ -1,0 +1,149 @@
+---
+---
+<section class="oferta-section" id="oferta">
+  
+  <div class="slogan-container">
+    <img 
+      src="/assets/logo/slogan.webp" 
+      alt="Construye Tu Futuro en Instituto Nikola Tesla - Oferta académica de Primaria, Secundaria, Preparatoria, Licenciaturas y Posgrados en Tehuantepec y Huatulco" 
+      class="slogan-img" 
+    />
+  </div>
+  
+  <div class="oferta-container">
+    
+    <details class="oferta-dropdown">
+      <summary class="oferta-summary">Educación Básica</summary>
+      <div class="oferta-content">
+        <a href="/int" class="oferta-link">
+          <img src="/assets/svg/int-primaria.svg" alt="Icono Primaria" class="svg-icon"/> Primaria
+        </a>
+        <a href="/int" class="oferta-link">
+          <img src="/assets/svg/int-secundaria.svg" alt="Icono Secundaria" class="svg-icon"/> Secundaria
+        </a>
+        <a href="/int" class="oferta-link">
+          <img src="/assets/svg/int-preparatoria.svg" alt="Icono Preparatoria" class="svg-icon"/> Preparatoria
+        </a>
+      </div>
+    </details>
+
+    <details class="oferta-dropdown">
+      <summary class="oferta-summary">Universidad</summary>
+      <div class="oferta-content">
+        <a href="/oferta/enfermeria" class="oferta-link">
+          <img src="/assets/svg/int-enfermeria.svg" alt="Enfermería" class="svg-icon"/> Licenciatura en Enfermería
+        </a>
+        <a href="/oferta/derecho" class="oferta-link">
+          <img src="/assets/svg/int-derecho.svg" alt="Derecho" class="svg-icon"/> Licenciatura en Derecho
+        </a>
+        <a href="/oferta/pedagogia" class="oferta-link">
+          <img src="/assets/svg/int-pedagogia.svg" alt="Pedagogía" class="svg-icon"/> Licenciatura en Pedagogía
+        </a>
+        <a href="/oferta/medicina" class="oferta-link">
+          <img src="/assets/svg/int-medicina.svg" alt="Medicina" class="svg-icon"/> Licenciatura en Médico Cirujano
+        </a>
+      </div>
+    </details>
+
+    <details class="oferta-dropdown">
+      <summary class="oferta-summary">Posgrados</summary>
+      <div class="oferta-content">
+        <a href="/oferta/especialidad-enfermeria-quirurgica" class="oferta-link">
+          <img src="/assets/svg/int-enfermeria.svg" alt="Especialidad" class="svg-icon"/> Especialidad en Enfermería Quirúrgica
+        </a>
+        <a href="/oferta/maestria-en-educacion" class="oferta-link">
+          <img src="/assets/svg/int-pedagogia.svg" alt="Maestría" class="svg-icon"/> Maestría en Educación
+        </a>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<style>
+  .oferta-section {
+    background-color: var(--color-morado-2);
+    padding: 80px 20px;
+  }
+
+  .slogan-container {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .slogan-img {
+    max-width: 320px; /* Tamaño ideal para que destaque sin abrumar */
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  .slogan-img:hover {
+    transform: scale(1.05); /* Efecto de crecimiento sutil */
+  }
+  
+  .oferta-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .oferta-dropdown {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background-color: var(--color-blanco);
+  }
+  
+  .oferta-summary {
+    background: linear-gradient(90deg, var(--color-morado), var(--color-morado-2));
+    color: var(--color-blanco);
+    padding: 20px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+  }
+  
+  .oferta-summary::-webkit-details-marker { display: none; }
+  
+  .oferta-summary::after {
+    content: '+';
+    position: absolute;
+    right: 30px;
+    font-size: 1.8rem;
+    transition: transform 0.3s;
+  }
+  details[open] .oferta-summary::after { content: '-'; }
+
+  .oferta-content {
+    background-color: var(--color-morado);
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .oferta-link {
+    color: var(--color-blanco);
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s;
+  }
+  
+  .oferta-link:last-child { border-bottom: none; }
+  .oferta-link:hover { background-color: rgba(255,255,255,0.1); padding-left: 40px; }
+  
+  .svg-icon {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+  }
+</style>

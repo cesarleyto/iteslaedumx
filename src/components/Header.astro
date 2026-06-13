@@ -1,0 +1,263 @@
+---
+---
+<div class="nav-wrapper">
+  <header class="floating-nav">
+    <div class="mobile-left-group">
+      <button id="menu-toggle" class="hamburger-btn" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="28" height="28"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <a href="/" class="logo-link" id="logo-btn">
+        <img src="/assets/logo/logo.webp" alt="Instituto Nikola Tesla" class="logo-img" />
+      </a>
+    </div>
+    
+    <nav class="desktop-nav">
+      <a href="/nosotros">Nosotros</a>
+      <a href="/#oferta">Oferta</a>
+      <a href="/campus">¡Nuevo Campus!</a>
+      <a href="/#contacto" class="btn-inscribete">¡Inscríbete ahora!</a>
+      <a href="https://www.facebook.com/iteslaedu" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+      </a>
+    </nav>
+  </header>
+
+  <div id="mobile-menu" class="mobile-dropdown-cloud">
+    
+    <button id="close-menu-cloud" class="close-cloud-btn" aria-label="Cerrar menú">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="28" height="28"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <nav class="mobile-nav">
+      <a href="/">Inicio</a>
+      <a href="/nosotros">Nosotros</a>
+      <a href="/#oferta">Oferta</a>
+      <a href="/campus">¡Nuevo Campus!</a>
+      
+      <a href="/#contacto" class="btn-primary mobile-primary-btn">¡Inscríbete ahora!</a>
+      
+      <a href="https://www.facebook.com/iteslaedu" target="_blank" rel="noopener" class="social-icon-mobile">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+        <span>Facebook</span>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<style>
+  .nav-wrapper {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .floating-nav {
+    background: linear-gradient(90deg, var(--color-morado), var(--color-morado-2));
+    border-radius: 50px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-left-group {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+  }
+  
+  .logo-img { height: 40px; width: auto; }
+  
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+  }
+  .desktop-nav a {
+    color: var(--color-blanco);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .desktop-nav a:hover:not(.btn-inscribete) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .btn-inscribete {
+    background: transparent;
+    color: var(--color-blanco) !important;
+    border: 1.5px solid var(--color-blanco);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .btn-inscribete:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+  }
+  .social-icon { display: flex; align-items: center; }
+  .social-icon:hover { transform: translateY(-2px); }
+  
+  .hamburger-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-blanco);
+    cursor: pointer;
+    padding: 0;
+  }
+
+  /* Ocultar la nube en escritorio por defecto */
+  .mobile-dropdown-cloud {
+    display: none; 
+  }
+
+  @media (max-width: 768px) {
+    .nav-wrapper { justify-content: flex-start; } 
+    .desktop-nav { display: none; }
+    .hamburger-btn { display: block; }
+    
+    .floating-nav { 
+      width: auto; 
+      padding: 10px 20px; 
+      margin-left: 0; 
+      position: relative; 
+      z-index: 1001;
+    }
+
+    /* Nube centralizada y ensanchada */
+    .mobile-dropdown-cloud {
+      display: flex;
+      position: absolute;
+      top: 80px; 
+      left: 20px;
+      right: 20px; 
+      width: auto; 
+      background-color: var(--color-blanco);
+      border-radius: 24px;
+      padding: 50px 20px 40px 20px; 
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      flex-direction: column;
+      align-items: center; 
+      
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-15px) scale(0.95);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+    
+    .mobile-dropdown-cloud.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    
+    /* El botón X flotando en la esquina de la nube */
+    .close-cloud-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .close-cloud-btn:hover {
+      color: var(--color-morado);
+      transform: scale(1.1);
+    }
+
+    .mobile-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center; 
+      gap: 25px;
+      width: 100%;
+    }
+    
+    .mobile-nav a {
+      color: var(--color-negro);
+      font-size: 1.2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    
+    .mobile-nav a:hover {
+      color: var(--color-morado);
+    }
+
+    /* Regla súper estricta para garantizar que el botón no sea negro */
+    .mobile-nav a.mobile-primary-btn {
+      color: var(--color-blanco) !important;
+      font-size: 1.1rem;
+    }
+    
+    .social-icon-mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--color-morado) !important;
+      font-size: 1.1rem !important;
+      margin-top: 5px;
+    }
+  }
+</style>
+
+<script>
+  const btnOpen = document.getElementById('menu-toggle');
+  const logoBtn = document.getElementById('logo-btn');
+  const btnCloseCloud = document.getElementById('close-menu-cloud');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-nav a');
+
+  // Función para abrir/cerrar el menú
+  function toggleMenu(e) {
+    if (window.innerWidth <= 768) {
+      // Retiramos temporalmente el preventDefault() del logo para que
+      // la funcionalidad de enlace absoluto ("/") funcione en móviles.
+      menu.classList.toggle('active');
+    }
+  }
+
+  // Activar menú con logo y rayitas
+  btnOpen.addEventListener('click', toggleMenu);
+  logoBtn.addEventListener('click', toggleMenu);
+
+  // Cerrar menú con la X
+  btnCloseCloud.addEventListener('click', () => {
+    menu.classList.remove('active');
+  });
+
+  // Al hacer clic en un enlace, la nube se cierra
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('active');
+    });
+  });
+
+  // Si el usuario hace clic afuera de la nube, se cierra
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+      if (!menu.contains(e.target) && !btnOpen.contains(e.target) && !logoBtn.contains(e.target)) {
+        menu.classList.remove('active');
+      }
+    }
+  });
+</script>

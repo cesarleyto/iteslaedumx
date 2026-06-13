@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import CTA from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+    title: string;
+    description?: string; // Lo volvemos opcional
+    image?: string;       // Nueva propiedad para la foto al compartir
+}
+
+// 1. Asignamos valores por defecto por si alguna página olvida ponerlos
+const { 
+    title, 
+    description = "El Instituto Nikola Tesla ofrece educación de excelencia en niveles Primaria, Secundaria, Preparatoria y Universidad en Santo Domingo Tehuantepec y Huatulco, Oaxaca. ¡Inscripción gratis y colegiaturas asequibles!",
+    image = "/assets/logo/logocolor.webp"
+} = Astro.props;
+
+// 2. Obtenemos la URL absoluta actual para las etiquetas canonical y Open Graph
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://www.itesla.edu.mx");
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="robots" content="index, follow" />
+        
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, canonicalURL)} />
+        <meta property="og:locale" content="es_MX" />
+        <meta property="og:site_name" content="Instituto Nikola Tesla" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={canonicalURL} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, canonicalURL)} />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+        
+        <script is:inline>
+         !function(f,b,e,v,n,t,s)
+         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+       'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '4428083377423885');
+       fbq('track', 'PageView');
+       </script>
+         <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4428083377423885&ev=PageView&noscript=1"/></noscript>
+    </head>
+    <body>
+        <Header />
+        
+        <main>
+            <slot />
+        </main>
+        
+        <CTA />
+        
+        <Footer />
+    </body>
+</html>
+
+<style>
+    main {
+        min-height: 70vh; /* Asegura que el footer no se flote en pantallas muy altas */
+    }
+</style>

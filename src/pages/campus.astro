@@ -1,0 +1,353 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="¡Nuevo Campus Universitario! - Instituto Nikola Tesla" 
+  description="Conoce el nuevo Campus Universitario del Instituto Nikola Tesla en Tehuantepec. Nuevas instalaciones, nuevas carreras y un futuro brillante."
+>
+  <main class="page-container">
+    
+    <section class="hero-campus">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="currentColor" class="yt-icon">
+            <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
+          </svg>
+          ¡Nuevo Campus Universitario! Muy Pronto
+        </h1>
+        
+        <div class="video-wrapper">
+          <iframe 
+            src="https://www.youtube.com/embed/4IwyCIkv26M" 
+            title="Nuevo Campus Universitario Nikola Tesla" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="info-grid">
+        
+        <div class="carousel-column">
+          <div class="carousel-container" id="campus-carousel">
+            <div class="carousel-track" id="carousel-track">
+              <img src="/assets/images/campus/v4.webp" alt="Avance de obra Campus Nikola Tesla 1" class="carousel-img" />
+              <img src="/assets/images/campus/v2.webp" alt="Avance de obra Campus Nikola Tesla 2" class="carousel-img" />
+              <img src="/assets/images/campus/v3.webp" alt="Avance de obra Campus Nikola Tesla 3" class="carousel-img" />
+              <img src="/assets/images/campus/v1.webp" alt="Avance de obra Campus Nikola Tesla 4" class="carousel-img" />
+            </div>
+            
+            <div class="carousel-dots">
+              <button class="dot active" data-index="0" aria-label="Ver foto 1"></button>
+              <button class="dot" data-index="1" aria-label="Ver foto 2"></button>
+              <button class="dot" data-index="2" aria-label="Ver foto 3"></button>
+              <button class="dot" data-index="3" aria-label="Ver foto 4"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-column">
+          <h2 class="section-title">
+            <span class="font-thin">Construye tu futuro</span> 
+            <span class="font-bold">en #Nikola Tesla</span> 💜
+          </h2>
+          
+          <div class="text-body">
+            <p>El Instituto Nikola Tesla, una institución educativa líder en la región, anuncia la construcción de un nuevo campus universitario en Tehuantepec, Oaxaca.</p>
+            
+            <p>El nuevo campus ubicado en Av. Universidad en Tehuantepec, hoy se encuentra en un 50% de avance y contará con aulas modernas, cafetería, amplio estacionamiento, canchas deportivas y un auditorio. Está previsto que su inauguración se lleve a cabo este 2026.</p>
+            
+            <p>Paralelo a su inauguración, se ofertarán nuevas carreras del área de la salud como Odontología y Nutrición. Estas carreras se suman a la oferta académica actual del Instituto, que incluye carreras como Medicina, Derecho, Pedagogía y Enfermería. Esto representa un importante paso adelante para la institución, ya que permitirá brindar una educación de alta calidad a una mayor cantidad de estudiantes.</p>
+            
+            <p class="highlight-text">¡Inscríbete y #ConstruyeTuFuturo en Nikola Tesla!</p>
+          </div>
+
+          <a href="/#contacto" class="btn-primary">¡Inscríbete hoy!</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  .page-container {
+    background-color: var(--color-blanco);
+    padding-bottom: 80px;
+  }
+
+  /* =========================================
+     SECCIÓN 1: PORTADA (HERO)
+  ========================================= */
+  .hero-campus {
+    position: relative;
+    width: 100%;
+    min-height: 90vh; /* Altura generosa para la portada */
+    background-image: url('/assets/images/campus/v2.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px 20px; /* Espacio para el nav fijo */
+  }
+
+  /* Capa oscura para que el texto blanco y el video destaquen */
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    color: var(--color-blanco);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  }
+
+  .yt-icon {
+    color: #FF0000; /* Rojo original de YouTube */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  /* Contenedor responsivo para el video incrustado */
+  .video-wrapper {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    border: 4px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* =========================================
+     SECCIÓN 2: INFORMACIÓN Y CARRUSEL
+  ========================================= */
+  .info-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 50% / 50% exacto */
+    gap: 60px;
+    align-items: center;
+  }
+
+  /* CARRUSEL DE FOTOS */
+  .carousel-column {
+    width: 100%;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Deslizamiento suave */
+    width: 100%;
+  }
+
+  .carousel-img {
+    min-width: 100%;
+    width: 100%;
+    height: auto; /* Mantiene la proporción horizontal sin estirar */
+    object-fit: cover;
+    aspect-ratio: 4/3; /* Garantiza que todas se vean parejas horizontalmente */
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4); /* Blanco translúcido */
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .dot.active {
+    background-color: var(--color-blanco);
+    transform: scale(1.2);
+    border: 2px solid var(--color-morado); /* Para que resalte la activa */
+  }
+
+  /* TEXTO DE LA DERECHA */
+  .text-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-title {
+    font-size: 2.6rem;
+    color: var(--color-morado);
+    margin-bottom: 25px;
+    line-height: 1.2;
+  }
+  
+  .font-thin { font-weight: 300; }
+  .font-bold { font-weight: 700; }
+
+  .text-body {
+    margin-bottom: 35px;
+  }
+
+  .text-body p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .highlight-text {
+    font-weight: 700;
+    color: var(--color-negro) !important;
+    font-size: 1.25rem !important;
+    margin-top: 25px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .btn-primary {
+    background: linear-gradient(90deg, var(--color-morado), var(--color-morado-2));
+    color: var(--color-blanco);
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.15rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(131, 22, 148, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(131, 22, 148, 0.4);
+  }
+
+  /* =========================================
+     RESPONSIVE
+  ========================================= */
+  @media (max-width: 950px) {
+    .info-grid {
+      grid-template-columns: 1fr; /* Pasa a 1 sola columna en tablet/móvil */
+      gap: 40px;
+    }
+    
+    .hero-title {
+      font-size: 1.8rem;
+      flex-direction: column; /* Icono arriba, texto abajo en móvil */
+      gap: 10px;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      text-align: center;
+      width: 100%;
+    }
+
+    .text-column {
+      align-items: center; /* Centra el botón en móvil */
+    }
+  }
+</style>
+
+<script>
+  // Lógica del Carrusel Automático
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = dots.length;
+    let currentIndex = 0;
+    let slideInterval;
+
+    const goToSlide = (index) => {
+      // Actualiza la posición de la pista
+      track.style.transform = `translateX(-${index * 100}%)`;
+      
+      // Actualiza las clases de los botones
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      
+      currentIndex = index;
+    };
+
+    const nextSlide = () => {
+      let nextIndex = (currentIndex + 1) % totalSlides;
+      goToSlide(nextIndex);
+    };
+
+    // Iniciar autoplay cada 3 segundos
+    const startAutoplay = () => {
+      slideInterval = setInterval(nextSlide, 3000);
+    };
+
+    const resetAutoplay = () => {
+      clearInterval(slideInterval);
+      startAutoplay();
+    };
+
+    // Eventos para click manual en los circulitos
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetAutoplay(); // Reinicia el temporizador si el usuario interactúa
+      });
+    });
+
+    // Arrancamos
+    startAutoplay();
+  });
+</script>

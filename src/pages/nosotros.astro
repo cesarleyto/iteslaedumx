@@ -1,0 +1,242 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Sobre Nosotros - Instituto Nikola Tesla" 
+  description="Conoce la historia, filosofía y compromiso con la excelencia académica del Instituto Nikola Tesla en Santo Domingo Tehuantepec, Oaxaca."
+>
+  <main class="page-container">
+    
+    <section class="hero-nosotros">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <img 
+          src="/assets/logo/logo.webp" 
+          alt="Logotipo Oficial Instituto Nikola Tesla" 
+          class="hero-logo-img" 
+        />
+      </div>
+    </section>
+
+    <section class="content-section-white">
+      <div class="single-column-container">
+        <h2>Nuestro Instituto</h2>
+        <p class="justify-text">
+          El Instituto Nikola Tesla es una institución educativa privada que ofrece educación de excelencia académica y humanista a niños y jóvenes de Santo Domingo Tehuantepec, Oaxaca. Fue fundada por los hermanos Martínez y actualmente cuenta con los niveles educativos de primaria, secundaria y preparatoria.
+        </p>
+        <p class="justify-text">
+          En 2018, extiende su oferta académica a nivel universitario al fundar el Instituto De Estudios Superiores Nikola Tesla, una institución educativa privada que ofrece educación superior de excelencia y actualmente cuenta con las carreras de Licenciatura en Pedagogía, Licenciatura en Enfermería y Licenciatura en Derecho, y a partir del 2025; Licenciatura en Médico Cirujano.
+        </p>
+
+        <h3 class="philosophy-title">Filosofía: Educación de excelencia al alcance de todos</h3>
+        <p class="justify-text">
+          La filosofía del Instituto Nikola Tesla se basa en la creencia de que la educación es el motor del desarrollo personal y social. Por ello, la institución se compromete a ofrecer una educación de calidad que prepare a sus estudiantes para enfrentar los retos del futuro. El Instituto Nikola Tesla cuenta con un gran equipo de docentes calificados y comprometidos con la educación de sus estudiantes. El personal administrativo también está comprometido con la excelencia académica y el bienestar de los estudiantes.
+        </p>
+        <p class="justify-text">
+          La institución ofrece un ambiente escolar cálido y acogedor que promueve el aprendizaje y el desarrollo personal de los estudiantes. El Instituto también cuenta con excelentes instalaciones que brindan a los estudiantes las herramientas necesarias para su aprendizaje. Los costos de la educación en el Instituto Nikola Tesla son asequibles para la región. La institución ofrece becas y descuentos para estudiantes de escasos recursos.
+        </p>
+        <p class="justify-text footer-info-text">
+          Para obtener más información sobre el Instituto Nikola Tesla, visite su sitio web <a href="https://www.itesla.edu.mx">www.itesla.edu.mx</a> o comuníquese con la institución al número <strong>971 117 5726</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section class="tesla-split-section">
+      <div class="split-grid">
+        <div class="image-wrapper">
+          <img 
+            src="/assets/images/nosotros3.webp" 
+            alt="Retrato de Nikola Tesla" 
+            class="circular-portrait" 
+          />
+        </div>
+        <div class="text-wrapper">
+          <h2>¿Quién fue Nikola Tesla?</h2>
+          <p class="justify-text">
+            Nikola Tesla fue un inventor, ingeniero eléctrico y físico serbio-estadounidense que se considera uno de los inventores más prolíficos de la historia. Sus aportes a la ciencia y la tecnología fueron fundamentales para el desarrollo de la electricidad moderna.
+          </p>
+          <p class="justify-text">
+            Tesla fue también un educador apasionado. Creía que la educación era la clave para el progreso de la humanidad. En sus propias palabras, <em>"la educación es el gran motor del progreso humano. Es el ascensor que lleva a la humanidad a una vida mejor"</em>.
+          </p>
+          <div class="action-container">
+            <a href="/nikolatesla" class="btn-primary">Conoce más 🚀</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  .page-container {
+    background-color: var(--color-blanco);
+    padding-bottom: 60px;
+  }
+
+  /* Portada Hero */
+  .hero-nosotros {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    background-image: url('/assets/images/nosotros.webp');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+  }
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* LOGO AGRANDADO: max-width escalado a 460px */
+  .hero-logo-img {
+    max-width: 460px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hero-logo-img:hover {
+    transform: scale(1.06);
+  }
+
+  /* Sección 1 Columna */
+  .content-section-white {
+    padding: 80px 20px;
+    background-color: var(--color-blanco);
+  }
+  .single-column-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .single-column-container h2 {
+    color: var(--color-morado);
+    font-size: 2.4rem;
+    margin-bottom: 30px;
+  }
+  .philosophy-title {
+    color: var(--color-negro);
+    font-size: 1.6rem;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .justify-text {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+  .footer-info-text {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 1rem;
+  }
+  .footer-info-text a {
+    color: var(--color-morado);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Sección 2 Columnas Split */
+  .tesla-split-section {
+    padding: 80px 20px;
+    background-color: #fdfdfd;
+    border-top: 1px solid #f5f5f5;
+  }
+  .split-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .image-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .circular-portrait {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  .circular-portrait:hover {
+    transform: scale(1.04);
+    box-shadow: 0 20px 45px rgba(131, 22, 148, 0.2);
+  }
+  .text-wrapper h2 {
+    color: var(--color-morado);
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
+  .action-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Botón Global Estilizado */
+  .btn-primary {
+    background: linear-gradient(90deg, var(--color-morado), var(--color-morado-2));
+    color: var(--color-blanco);
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(131, 22, 148, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(131, 22, 148, 0.35);
+  }
+
+  /* Responsive Rules */
+  @media (max-width: 950px) {
+    .split-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+    .text-wrapper h2 {
+      text-align: center;
+    }
+    .circular-portrait {
+      width: 340px;
+      height: 340px;
+    }
+    .action-container {
+      justify-content: center;
+    }
+    .single-column-container h2 {
+      text-align: center;
+      font-size: 2rem;
+    }
+    .hero-logo-img {
+      max-width: 290px; /* Tamaño controlado para celulares */
+    }
+  }
+</style>

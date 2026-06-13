@@ -1,0 +1,350 @@
+---
+// 1. Importa 'render' junto a 'getCollection'
+import { getCollection, render } from 'astro:content'; 
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const ofertaEntries = await getCollection('oferta');
+  return ofertaEntries.map(entry => ({
+    params: { slug: entry.id }, 
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+
+// 2. Renderizamos el markdown
+const { Content } = await render(entry); 
+---
+
+<Layout 
+  title={`${entry.data.titulo} - Instituto Nikola Tesla`} 
+  description={`Estudia la ${entry.data.titulo} en el Instituto Nikola Tesla. Conoce nuestro plan de estudios, modalidades mixta y sabatina, y construye tu futuro con colegiaturas accesibles.`}
+  image={entry.data.imagen_1} >
+  
+  <main class="oferta-page">
+    
+    <section class="hero-oferta">
+      
+      <div class="hero-info-side">
+        <div class="icon-box">
+          <img src={entry.data.svg} alt={`Icono de ${entry.data.titulo}`} class="carrera-icon" />
+        </div>
+        
+        <h1 class="carrera-title">{entry.data.titulo}</h1>
+        
+        <p class="carrera-desc">{entry.data.descripcion}</p>
+        
+        <a href={entry.data.link_mapa} target="_blank" rel="noopener" class="btn-primary">
+          Ver Mapa Curricular (PDF)
+        </a>
+      </div>
+
+      <div class="hero-carousel-side">
+        <div class="carousel-container" id="oferta-carousel">
+          <div class="carousel-track" id="carousel-track">
+            <img src={entry.data.imagen_1} alt={`Foto 1 ${entry.data.titulo}`} class="carousel-img" />
+            <img src={entry.data.imagen_2} alt={`Foto 2 ${entry.data.titulo}`} class="carousel-img" />
+          </div>
+          
+          <div class="carousel-dots">
+            <button class="dot active" data-index="0" aria-label="Ver foto 1"></button>
+            <button class="dot" data-index="1" aria-label="Ver foto 2"></button>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <section class="content-oferta">
+      <div class="content-wrapper">
+        
+        <article class="markdown-body">
+          <Content />
+        </article>
+
+        <div class="footer-action">
+          <a href={entry.data.link_mapa} target="_blank" rel="noopener" class="btn-outline-white">
+            Ver Mapa Curricular (PDF)
+          </a>
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  .oferta-page {
+    background-color: var(--color-blanco);
+  }
+
+  /* =========================================
+     PRIMERA SECCIÓN: PORTADA
+  ========================================= */
+  .hero-oferta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh; /* Ajustado a 100vh para que cubra la pantalla completa de inicio */
+  }
+
+  .hero-info-side {
+    background-color: var(--color-blanco);
+    /* EL SECRETO: 140px arriba para proteger el texto del Nav flotante, 
+       pero permitiendo que la columna de foto (derecha) toque el techo absoluto */
+    padding: 140px 40px 80px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* Cuadrado morado degradado (Agrandado) */
+  .icon-box {
+    width: 120px; /* Antes 90px */
+    height: 120px; /* Antes 90px */
+    border-radius: 28px;
+    background: linear-gradient(to bottom, var(--color-morado-2), var(--color-morado));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    box-shadow: 0 12px 30px rgba(131, 22, 148, 0.3);
+  }
+
+  /* SVG adentro del cuadro (Más grande, menos margen) */
+  .carrera-icon {
+    width: 80px; /* Antes 45px */
+    height: 80px; /* Antes 45px */
+    filter: brightness(0) invert(1);
+  }
+
+  .carrera-title {
+    color: var(--color-morado);
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+  }
+
+  /* Descripción (Agrandada) */
+  .carrera-desc {
+    font-weight: 300;
+    font-size: 1.55rem; /* Antes 1.3rem */
+    color: #444;
+    white-space: pre-line;
+    line-height: 1.6;
+    margin-bottom: 45px;
+  }
+
+  .btn-primary {
+    background: linear-gradient(90deg, var(--color-morado), var(--color-morado-2));
+    color: var(--color-blanco);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(131, 22, 148, 0.25);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(131, 22, 148, 0.35);
+  }
+
+  /* CARRUSEL DE FOTOS */
+  .hero-carousel-side {
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .carousel-img {
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 10;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  .dot.active {
+    background-color: var(--color-blanco);
+    transform: scale(1.2);
+  }
+
+  /* =========================================
+     SEGUNDA SECCIÓN: CONTENIDO
+  ========================================= */
+  .content-oferta {
+    background-color: var(--color-morado-2);
+    color: var(--color-blanco);
+    padding: 100px 20px;
+  }
+
+  .content-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  .markdown-body {
+    text-align: justify;
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+  .markdown-body :global(h2), .markdown-body :global(h3) {
+    font-size: 1.8rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  .markdown-body :global(p) {
+    margin-bottom: 20px;
+    opacity: 0.95;
+  }
+  .markdown-body :global(ul) {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+  .markdown-body :global(li) {
+    margin-bottom: 10px;
+    opacity: 0.95;
+  }
+
+  .footer-action {
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .btn-outline-white {
+    background: transparent;
+    color: var(--color-blanco);
+    border: 2px solid var(--color-blanco);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .btn-outline-white:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+  }
+
+  /* =========================================
+     RESPONSIVE
+  ========================================= */
+  @media (max-width: 950px) {
+    .hero-oferta {
+      grid-template-columns: 1fr;
+      min-height: auto;
+    }
+    
+    .hero-carousel-side {
+      height: 55vh; 
+      order: -1; /* Pasa la imagen arriba en celular */
+    }
+
+    .hero-info-side {
+      /* En móvil el menú flota sobre la imagen, el texto ya no necesita 140px */
+      padding: 60px 20px; 
+    }
+
+    /* Reducción proporcional para móvil */
+    .icon-box {
+      width: 100px;
+      height: 100px;
+    }
+    .carrera-icon {
+      width: 65px;
+      height: 65px;
+    }
+    .carrera-desc {
+      font-size: 1.35rem;
+    }
+
+    .carrera-title {
+      font-size: 2.2rem;
+    }
+
+    .footer-action {
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const track = document.getElementById('carousel-track');
+    if(!track) return;
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+    let slideInterval;
+
+    const goToSlide = (index) => {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      currentIndex = index;
+    };
+
+    const nextSlide = () => {
+      let nextIndex = (currentIndex + 1) % dots.length;
+      goToSlide(nextIndex);
+    };
+
+    const startAutoplay = () => {
+      slideInterval = setInterval(nextSlide, 3000);
+    };
+
+    const resetAutoplay = () => {
+      clearInterval(slideInterval);
+      startAutoplay();
+    };
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetAutoplay();
+      });
+    });
+
+    startAutoplay();
+  });
+</script>

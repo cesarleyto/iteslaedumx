@@ -1,0 +1,282 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="¿Quién fue Nikola Tesla? - Valores Institucionales" 
+  description="Conoce la vida de Nikola Tesla, sus revolucionarios inventos y el valioso legado educativo de curiosidad y excelencia que adoptamos en nuestro Instituto."
+>
+  <main class="page-container">
+    
+    <section class="hero-biografia">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid-container">
+        
+        <div class="hero-text-side">
+          <h1>¿Quién fue Nikola Tesla?</h1>
+          <p class="justify-text white-text">
+            Nikola Tesla fue un inventor, ingeniero eléctrico y físico serbio-estadounidense que se considera uno de los inventores más prolíficos de la historia. Sus aportes a la ciencia y la tecnología fueron fundamentales para el desarrollo de la electricidad moderna.
+          </p>
+          <p class="justify-text white-text">
+            Tesla fue también un educador apasionado. Creía que la educación era la clave para el progreso de la humanidad. En sus propias palabras, <em>"la educación es el gran motor del progreso humano. Es el ascensor que lleva a la humanidad a una vida mejor"</em>.
+          </p>
+        </div>
+
+        <div class="hero-image-side">
+          <div class="circular-mask-container">
+            <img 
+              src="/assets/images/nosotros3.webp" 
+              alt="Nikola Tesla retrato histórico" 
+              class="biography-avatar" 
+            />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="values-section-white">
+      <div class="values-narrow-content">
+        <h2>Los valores de Tesla</h2>
+        <p class="justify-text font-medium">
+          Los valores educativos de Nikola Tesla se pueden resumir en los siguientes puntos clave que guían nuestro modelo de enseñanza:
+        </p>
+
+        <div class="value-item-box">
+          <h4>La importancia de la curiosidad y el aprendizaje continuo</h4>
+          <p class="justify-text">
+            Tesla era un hombre profundamente curioso. Estaba siempre buscando nuevas formas de aprender y expandir sus conocimientos. Creía que el aprendizaje continuo era esencial para el éxito.
+          </p>
+        </div>
+
+        <div class="value-item-box">
+          <h4>El valor de la creatividad y la innovación</h4>
+          <p class="justify-text">
+            Tesla era un inventor prolífico. Sus invenciones eran a menudo revolucionarias y cambiaron el mundo. Creía que la creatividad y la innovación eran esenciales para el progreso.
+          </p>
+        </div>
+
+        <div class="value-item-box">
+          <h4>El compromiso con la excelencia</h4>
+          <p class="justify-text">
+            Tesla era un perfeccionista. Siempre buscaba la mejor manera de hacer las cosas. Creía que el compromiso con la excelencia era esencial para el éxito.
+          </p>
+        </div>
+
+        <p class="justify-text summary-highlight">
+          Los valores educativos de Nikola Tesla son una inspiración para todos los que buscan el éxito en la vida. Su ejemplo nos enseña que la curiosidad, la creatividad, la innovación y el compromiso con la excelencia son las claves para alcanzar nuestras metas.
+        </p>
+
+        <h3 class="sub-heading-values">Tesla en la práctica: hechos históricos</h3>
+        <ul class="tesla-bullet-list">
+          <li>
+            <strong>Autodidacta admirable:</strong> Aprendió a leer y escribir a los 8 años y luego se dedicó a estudiar por su cuenta de forma disciplinada.
+          </li>
+          <li>
+            <strong>Inventor incansable:</strong> Patentó más de 300 invenciones revolucionarias, incluyendo el motor de corriente alterna, el tubo de vacío y los principios del radar.
+          </li>
+          <li>
+            <strong>Perfeccionismo absoluto:</strong> Pasó años enteros trabajando minuciosamente en su motor de corriente alterna para perfeccionarlo antes de presentarlo al mundo.
+          </li>
+        </ul>
+
+        <p class="justify-text final-note">
+          Los valores educativos de Nikola Tesla son un legado que sigue inspirando a los estudiantes de todo el mundo. Valores que día a día acompañan a nuestros docentes y alumnado. Para obtener más información sobre el Instituto Nikola Tesla, visite nuestro sitio web <a href="https://www.itesla.edu.mx">www.itesla.edu.mx</a> o comuníquese con la institución al número <strong>971 117 5726</strong>.
+        </p>
+      </div>
+    </section>
+
+  </main>
+</Layout>
+
+<style>
+  .page-container {
+    background-color: var(--color-blanco);
+    padding-bottom: 80px;
+  }
+
+  /* Hero Section con Fondo e info dividida */
+  .hero-biografia {
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    background-image: url('/assets/images/nosotros2.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Parallax sofisticado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 40px 80px 40px;
+  }
+  .hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* Capa oscura pro */
+    z-index: 1;
+  }
+  .hero-grid-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .hero-text-side h1 {
+    color: var(--color-blanco);
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    font-weight: 800;
+  }
+  
+  .white-text {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .hero-image-side {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .circular-mask-container {
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+  }
+
+  .biography-avatar {
+    width: 360px;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .biography-avatar:hover {
+    transform: scale(1.06);
+  }
+
+  /* Formato Justificado Global */
+  .justify-text {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a4a4a;
+    margin-bottom: 20px;
+  }
+
+  /* Sección de Valores (1 Columna) */
+  .values-section-white {
+    padding: 90px 20px;
+    background-color: var(--color-blanco);
+  }
+  .values-narrow-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .values-narrow-content h2 {
+    color: var(--color-morado);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+  }
+  .font-medium {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-negro);
+    margin-bottom: 40px;
+  }
+
+  /* Bloques de ítems */
+  .value-item-box {
+    margin-bottom: 35px;
+    border-left: 4px solid var(--color-morado-2);
+    padding-left: 20px;
+  }
+  .value-item-box h4 {
+    font-size: 1.3rem;
+    color: var(--color-negro);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  .summary-highlight {
+    background-color: #faf6fc;
+    padding: 25px 30px;
+    border-radius: 16px;
+    font-weight: 500;
+    color: var(--color-morado);
+    margin: 45px 0;
+    border: 1px solid rgba(131, 22, 148, 0.05);
+  }
+
+  .sub-heading-values {
+    font-size: 1.6rem;
+    color: var(--color-negro);
+    margin-bottom: 25px;
+    font-weight: 700;
+  }
+
+  /* Listas Personalizadas */
+  .tesla-bullet-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .tesla-bullet-list li {
+    position: relative;
+    padding-left: 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #4a4a4a;
+  }
+  .tesla-bullet-list li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1.1rem;
+  }
+
+  .final-note {
+    border-top: 1px solid #eee;
+    padding-top: 30px;
+    font-size: 1rem;
+  }
+  .final-note a {
+    color: var(--color-morado);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* Responsive Rules */
+  @media (max-width: 950px) {
+    .hero-biografia {
+      padding: 120px 20px 60px 20px;
+    }
+    .hero-grid-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+    .hero-text-side h1 {
+      font-size: 2.2rem;
+      text-align: center;
+    }
+    .biography-avatar {
+      width: 300px;
+      height: 300px;
+    }
+    .values-narrow-content h2 {
+      text-align: center;
+      font-size: 2.1rem;
+    }
+  }
+</style>
